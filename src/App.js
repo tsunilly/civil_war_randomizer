@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Container, Typography, Grid, Button, Card, CardContent, Slider } from '@material-ui/core';
+import { Container, Typography, Grid, Button, Card, CardContent, Slider, CardHeader, Box } from '@material-ui/core';
 
 const PRESET_PLAYERS = [
   {name: 'tsunilly', ratio: 0.5},
@@ -33,22 +33,33 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: PRESET_PLAYERS,
+      players: [],//PRESET_PLAYERS,
     };
   }
 
   handleAddPlayer(player) {
-    if (typeof player == 'string' && player === 'new') {
-      this.setState({'players': [...this.state['players'], {name: 'Newbie', ratio: 0.5}]})
-    } else if (typeof player == 'object') {
-      this.setState({'players': [...this.state['players'], player]})
+    let nPlayers = this.state['players'].length;
+    if (nPlayers < 10) {
+      if (typeof player == 'string' && player === 'new') {
+        
+        this.setState({'players': [...this.state['players'], {name: `Player-${nPlayers}`, ratio: 0.5}]})
+      } else if (typeof player == 'object') {
+        this.setState({'players': [...this.state['players'], player]})
+      }
     }
+  }
+
+  checkIfPlaying(player) {
+    return this.state['players'].some(p => p['name'] === player['name']);
   }
 
   render() {
     var playerSelect = PRESET_PLAYERS.map(player => 
       <Grid key={player['name']} item>
-        <Button variant="outlined" onClick={() => this.handleAddPlayer(player)}>
+        <Button variant="outlined" 
+          onClick={() => this.handleAddPlayer(player)}
+          disabled={this.checkIfPlaying(player) || this.state['players'].length === 10}
+        >
           {player['name']}
         </Button>
       </Grid>
@@ -57,13 +68,20 @@ class App extends Component {
     var selectedPlayers = this.state['players'].map(player =>
       <Grid key={player['name']} item xs={6}>
         <Card>
+          <CardHeader
+            title={player['name']}
+          >
+            
+          </CardHeader>
           <CardContent>
-            {player['name']} : 
+            <Box px={2}>
             <Slider 
               defaultValue={player['ratio'] * 100} 
               marks={SLIDER_MARKS}
+              valueLabelDisplay="on"
+              step={5}
             />
-
+            </Box>
           </CardContent>
         </Card>
       </Grid>
@@ -74,19 +92,41 @@ class App extends Component {
         <Typography align="center" variant="h1">Header</Typography>
         <div>Select players:</div>
 
-        <Grid container justify="center" alignContent="space-evenly" alignItems="stretch" spacing={1}>
+        <Grid container justify="center" alignContent="space-around" alignItems="stretch" spacing={1}>
           { playerSelect }
         </Grid>
         <hr className="hr-text" data-content="OR"/>
         
-        <Grid container justify="center">
-          <Button variant="contained">Add a Custom Player</Button>
-        </Grid>
+        <Box pb={2}>
+          <Grid container justify="center">
+            <Button 
+              variant="contained" 
+              onClick={() => this.handleAddPlayer('new')}
+              disabled={this.state['players'].length === 10}
+            >
+              Add a Custom Player
+            </Button>
+          </Grid>
+        </Box>
 
-        players:
-        <Grid container alignContent="space-evenly" spacing={2}>
-          {selectedPlayers}
-        </Grid>
+        <Box pb={2}>
+          players:
+          <Grid container alignContent="space-around" spacing={2} pb={2}>
+            {selectedPlayers}
+          </Grid>
+        </Box>
+
+        {this.state['players'].length === 10 && 
+          <Box>
+            <Button 
+              color="primary"
+              variant="contained"
+              fullWidth={true}
+            >
+              Roll Roles and Teams!
+            </Button>
+          </Box>
+        }
 
         
   
