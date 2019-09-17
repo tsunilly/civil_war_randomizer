@@ -49,6 +49,19 @@ class App extends Component {
     }
   }
 
+  handleChangeValue(player, value) {
+    let index = this.state.players.findIndex(p => p['name'] === player['name']);
+    let updatedPlayer = this.state.players[index];
+    updatedPlayer['ratio'] = value / 100;
+    this.setState({
+      'players': [
+        ...this.state.players.splice(0, index),
+        updatedPlayer,
+        ...this.state.players.splice(index + 1)
+      ]
+    })
+  }
+
   checkIfPlaying(player) {
     return this.state['players'].some(p => p['name'] === player['name']);
   }
@@ -76,10 +89,12 @@ class App extends Component {
           <CardContent>
             <Box px={2}>
             <Slider 
-              defaultValue={player['ratio'] * 100} 
+              // defaultValue={player['ratio'] * 100} 
+              value={player['ratio'] * 100}
               marks={SLIDER_MARKS}
               valueLabelDisplay="on"
               step={5}
+              onChange={(e,val) => this.handleChangeValue(player, val)}
             />
             </Box>
           </CardContent>
