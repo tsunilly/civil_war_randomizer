@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ae349c510b6e5e0198d5d071a0e66561",
+    "revision": "8db45bb4ec64fe1d43a585b7a4eda5b2",
     "url": "/civil_war_randomizer/index.html"
   },
   {
-    "revision": "a78645b5ef9b0200e161",
+    "revision": "952bb47744e18c006044",
     "url": "/civil_war_randomizer/static/css/2.00274bc6.chunk.css"
   },
   {
-    "revision": "a6aa59a707a52a49156f",
+    "revision": "ce473b218fe636929cc4",
     "url": "/civil_war_randomizer/static/css/main.0376e15b.chunk.css"
   },
   {
-    "revision": "a78645b5ef9b0200e161",
-    "url": "/civil_war_randomizer/static/js/2.a91b67f3.chunk.js"
+    "revision": "952bb47744e18c006044",
+    "url": "/civil_war_randomizer/static/js/2.bc7d3420.chunk.js"
   },
   {
-    "revision": "a6aa59a707a52a49156f",
-    "url": "/civil_war_randomizer/static/js/main.852d4ea6.chunk.js"
+    "revision": "ce473b218fe636929cc4",
+    "url": "/civil_war_randomizer/static/js/main.0a736cab.chunk.js"
   },
   {
     "revision": "1fee09dedd5a2b915d14",
