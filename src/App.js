@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Container, Typography, Grid, Button, Card, CardContent, Box, IconButton, Fade } from '@material-ui/core';
+import { Container, Typography, Grid, Button, Card, CardContent, Box, IconButton, Fade, Hidden } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 
 import { PRESET_PLAYERS } from './constants';
@@ -159,9 +159,17 @@ class App extends Component {
     var matchup = (this.state.teamA.length === 5 && this.state.teamB.length === 5) ? (
       <Box mb={3}>
         <Grid container alignItems="center" justify="center">
-          <Grid item sm={5}><Typography variant="h5" align="right">{teamA}</Typography></Grid>
-          <Grid item sm={2}><Typography variant="h2" align="center"> vs </Typography></Grid>
-          <Grid item sm={5}><Typography variant="h5" align="left">{teamB}</Typography></Grid>
+          <Hidden xsDown>
+            <Grid item sm={5}><Typography variant="h5" align="right">{teamA}</Typography></Grid>
+            <Grid item sm={2}><Typography variant="h2" align="center"> vs </Typography></Grid>
+            <Grid item sm={5}><Typography variant="h5" align="left">{teamB}</Typography></Grid>
+          </Hidden>
+
+          <Hidden smUp>
+            <Grid item xs={12}><Typography variant="h5" align="left">{teamA}</Typography></Grid>
+            <Grid item xs={12}><Typography variant="h2" align="center"> vs </Typography></Grid>
+            <Grid item xs={12}><Typography variant="h5" align="right">{teamB}</Typography></Grid>
+          </Hidden>
         </Grid>
 
       </Box>
