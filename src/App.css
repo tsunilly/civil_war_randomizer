@@ -64,3 +64,8 @@
   color: #818078;
   background-color: #fcfcfa;
 }
+
+.offset-y-10 {
+  position: relative;
+  top: -10px;
+}
