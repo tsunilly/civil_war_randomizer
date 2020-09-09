@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8db45bb4ec64fe1d43a585b7a4eda5b2",
+    "revision": "c8807ac2681206b064b612b2d93bee71",
     "url": "/civil_war_randomizer/index.html"
   },
   {
-    "revision": "952bb47744e18c006044",
+    "revision": "456009ae81a394790edd",
     "url": "/civil_war_randomizer/static/css/2.00274bc6.chunk.css"
   },
   {
-    "revision": "ce473b218fe636929cc4",
-    "url": "/civil_war_randomizer/static/css/main.0376e15b.chunk.css"
+    "revision": "c7d2543a37239fc701a6",
+    "url": "/civil_war_randomizer/static/css/main.125917fb.chunk.css"
   },
   {
-    "revision": "952bb47744e18c006044",
-    "url": "/civil_war_randomizer/static/js/2.bc7d3420.chunk.js"
+    "revision": "456009ae81a394790edd",
+    "url": "/civil_war_randomizer/static/js/2.3bb3a215.chunk.js"
   },
   {
-    "revision": "ce473b218fe636929cc4",
-    "url": "/civil_war_randomizer/static/js/main.0a736cab.chunk.js"
+    "revision": "c7d2543a37239fc701a6",
+    "url": "/civil_war_randomizer/static/js/main.46624344.chunk.js"
   },
   {
     "revision": "1fee09dedd5a2b915d14",
